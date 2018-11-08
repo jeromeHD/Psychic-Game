@@ -4,29 +4,31 @@ var computerChoices = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l
 var wins = 0;
 var losses = 0;
 var guessesLeft = 9;
-var lettersGuessed = [];
+var lettersGuessed = []
 
     document.onkeyup = function() {
         var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+        console.log(userGuess);
 
         lettersGuessed.push(userGuess);
 
-        var computerGuess = options[Math.floor(Math.random()*optiions.length)];
+        var computerGuess = computerChoices[Math.floor(Math.random()*computerChoices.length)];
+        console.log(computerGuess);
 
     if (userGuess==computerGuess) {
             wins++;
             guessesLeft = 9;
             lettersGuessed = [];
-            alert("You Guessed right! " + wins);
+            alert("The psychic is strong in you! " + wins);
     } 
     else if (guessesLeft==0){
             losses++;
             guessesLeft = 9;
             lettersGuessed = [];
-            alert("Almost Got It..... - Click OK to Continue");
+            alert("Pyschic level Nonexistent! - Click OK to Continue");
     }
     else {
-            alert("Psychic Level = None");
+            alert("Again!!!");
             guessesLeft--;
     }
 
